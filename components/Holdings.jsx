@@ -1,9 +1,24 @@
-import React from "react";
-import { holdings } from "../data/data";
+import React, { useState, useEffect } from "react";
+import { axios } from "axios";
+// import { holdings } from "../data/data";
+
 const Holdings = () => {
+  const [Allholdings, setAllHoldings] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/allHoldings")
+      .then((res) => {
+        setAllHoldings(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching holdings:", error);
+      });
+  }, []);
+
   return (
     <>
-      <h3 className="title">Holdings ({holdings.length})</h3>
+      <h3 className="title">Holdings ({Allholdings.length})</h3>
 
       <div className="order-table">
         <table>
@@ -17,13 +32,13 @@ const Holdings = () => {
             <th>Net chg.</th>
             <th>Day chg.</th>
           </tr>
-          {holdings.map((stock, index) => {
+          {Allholdings.map((stock, index) => {
             const curValue = stock.price * stock.qty;
             const isProfit = curValue > stock.avg * stock.qty;
             const profClass = isProfit ? "profit" : "loss";
             const dayClass = stock.isLoss ? "loss" : "profit";
             return (
-              <tr key={index} >
+              <tr key={index}>
                 <td>
                   {/* <img src={holding.img} alt={holding.name} /> */}
                   {stock.name}
