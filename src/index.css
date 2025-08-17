@@ -69,15 +69,15 @@ button:focus-visible {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -477,11 +477,11 @@ hr {
 }
 
 .order-table tr td:first-child p {
-    background: rgb(255, 197, 197);
-    color: rgb(233, 120, 120);
-    width: 50%;
-    text-align: center;
-    border-radius: 2px;
+  background: rgb(255, 197, 197);
+  color: rgb(233, 120, 120);
+  width: 50%;
+  text-align: center;
+  border-radius: 2px;
 }
 
 .order-table tr td:last-child {
@@ -806,7 +806,7 @@ hr {
   background-color: #4184f3;
   color: #fff;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   border: 0.7px solid #4184f3;
 }
 
@@ -814,13 +814,14 @@ hr {
   background-color: #ff5722;
   color: #fff;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   border: 0.7px solid #ff5722;
 }
 
 .action {
   background-color: #fff;
   border: 0.7px solid #9b9b9b;
+  padding: 0 0.5rem;
 }
 
 .icon {
@@ -860,6 +861,7 @@ hr {
 
 .down {
   color: rgb(223, 73, 73);
+  font-size: 1rem;
 }
 
 .up {
