@@ -18,5 +18,3 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </StrictMode>
 );
-
-import "./index.css";

@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Tooltip, Grow } from "@mui/material";
+import GeneralContext from "./GeneralContext"; // <-- import context
 
-import { watchlist } from "../data/data";
+import DoughnutChart from "./DoughnutChart";
+import { watchlist } from "../data/data"; // <-- import your static array
+
 const WatchList = () => {
+  // const [watchlist, setWatchlist] = useState(watchlist);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/allWatchlist") // <-- your API endpoint
+  //     .then((res) => setWatchlist(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
   return (
     <div className="watchlist-container">
       <div className="search-container">
@@ -21,6 +33,8 @@ const WatchList = () => {
           return <WatchListItem stock={stock} key={index} />;
         })}
       </ul>
+      {/* Doughnut chart below the list */}
+      <DoughnutChart watchlist={watchlist} />
     </div>
   );
 };
@@ -28,6 +42,7 @@ const WatchList = () => {
 export default WatchList;
 
 //WatchListItem is not reused so we are going to create this comp. below
+
 const WatchListItem = ({ stock }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -55,16 +70,20 @@ const WatchListItem = ({ stock }) => {
           <span className="price">{stock.price}</span>
         </div>
       </div>
-      {isHovered && <WatchListActions uid={stock.name} />}
+      {isHovered && <WatchListActions uid={stock.name} price={stock.price} />}
     </li>
   );
 };
 
-const WatchListActions = (uid) => {
+const WatchListActions = ({ uid, price }) => {
+  const { openBuyWindow } = useContext(GeneralContext); // <-- use context
+
   return (
     <span className="actions">
       <Tooltip title="Buy (B)" placement="top" arrow TransitionComponent={Grow}>
-        <button className="buy">Buy</button>
+        <button className="buy" onClick={() => openBuyWindow(uid, price)}>
+          Buy
+        </button>
       </Tooltip>
       <Tooltip
         title="Sell (S)"
