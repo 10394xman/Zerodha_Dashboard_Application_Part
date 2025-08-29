@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
@@ -21,7 +21,7 @@ const Menu = () => {
       <div className="menus">
         <ul>
           <li>
-            <Link style={{ textDecoration: 'none' }} to="/dashboard"  onClick={() => handleMenuItemClick(0)}>
+            <Link style={{ textDecoration: 'none' }} to="/"  onClick={() => handleMenuItemClick(0)}>
               <p className={selectedMenu === 0 ? activeMenuClass : menuClass}>Dashboard</p>
             </Link>
           </li>

@@ -1,19 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import Home from "../components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Routes>
         <Route path="/*" element={<Home />} />
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
-)
-
-import "./index.css";
-
+  </StrictMode>
+);
