@@ -8,7 +8,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/allOrders")
+      .get("https://zerodha-backend-hgfc.onrender.com/allOrders")
       .then((res) => setOrders(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false)); // <-- set loading to false

@@ -8,7 +8,7 @@ const Holdings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/allHoldings")
+      .get("https://zerodha-backend-hgfc.onrender.com/allHoldings")
       .then((res) => {
         setAllholdings(res.data);
       })
